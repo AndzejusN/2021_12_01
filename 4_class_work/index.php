@@ -30,7 +30,10 @@ for ($i = 1; $i < 10; $i++) {
                                   echo $i . $i . $i . $i . $i . $i . $i . $i .'<br>';
                                   for ($i++; $i < 10;) {
                                       echo $i . $i . $i . $i . $i . $i . $i . $i . $i .'<br>';
-                                      break;
+                                      for ($i++; $i < 10;){
+                                          break;
+                                      }
+
                                   }
                               }
                           }
