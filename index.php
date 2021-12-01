@@ -3,8 +3,8 @@
 
 function countSeconds(){
     $seconds = 24*60*60;
-    echo $seconds . ' seconds';
+    return $seconds;
 }
 
 
-countSeconds();
+echo countSeconds() . ' seconds';
