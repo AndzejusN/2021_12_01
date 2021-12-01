@@ -35,15 +35,13 @@ $sum = 0;
 $num = 0;
 
 foreach ($books as $book){
-    global $sum;
-    global $num;
     $num++;
     $sum += $book['year'];
 }
 echo '<br>';
 
 $mid = $sum / $num;
-echo 'Vidutinis knygų metai: ' . $mid;
+echo 'Vidutinis knygų/metai: ' . $mid;
 
 ?>
 
@@ -55,14 +53,14 @@ echo 'Vidutinis knygų metai: ' . $mid;
 <body>
 <div>
     <table>
-    <tr>
     <?php foreach ($books as $book){?>
-        <td><?php echo $book['title'];?></td>
-        <td><?php echo $book['author'];?></td>
-        <td><?php echo $book['year'];?></td>
-        <td><?php echo $book['genre'];?></td>
+        <tr>
+            <td><?php echo $book['title'];?></td>
+            <td><?php echo $book['author'];?></td>
+            <td><?php echo $book['year'];?></td>
+            <td><?php echo $book['genre'];?></td>
+        </tr>
    <?php } ?>
-    </tr>
     </table>
 </div>
 </body>
