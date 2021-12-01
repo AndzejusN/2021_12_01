@@ -42,11 +42,10 @@ echo '<br>';
 
 $mid = $sum / $num;
 echo 'Vidutinis knygų/metai: ' . $mid;
-
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="lt">
 <head>
     <title></title>
 </head>
@@ -65,4 +64,3 @@ echo 'Vidutinis knygų/metai: ' . $mid;
 </div>
 </body>
 </html>
-
