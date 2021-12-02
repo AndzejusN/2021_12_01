@@ -1,21 +1,26 @@
 <?php
 
-// Sukurkite dvimatį masyvą. Pirmieji du raktai yra lt ir en.
-// Raktai turi savaitės dienų vardų masyvus lietuviškai ir angliškai.
-// Naudodamiesi šiuo masyvu, pirmadienį parodykite lietuvių kalba, o trečiadienį - anglų kalba.
-// Sukurkite kintamuosius lang (reikšmės lt arba en) ir parodykite dieną
-
 $dateTime = [
-    'LT'=>['Pirmadienis', 'Antradienis', 'Trečiadienis','Ketvirtadienis','Penktadienis','Šeštadienis','Sekmadienis'],
-    'EN'=>['Monday','Tuesday','Wednesday','Thursday','Friday','Sunday']
+    'LT'=>['Sekmadienis','Pirmadienis', 'Antradienis', 'Trečiadienis','Ketvirtadienis','Penktadienis','Šeštadienis'],
+    'EN'=>['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday']
 ];
 
-var_dump($dateTime['LT'][0]);
-echo '<br>';
-var_dump($dateTime['EN'][2]);
+$today = date("Y-m-d");
 
 $lang = ['EN','LT'];
+
+
+function getWeekday($today,$lang) {
+    return $data = [$numberDate = date('w', strtotime($today)),$lang];
+
+}
+
+
+$numberDate = getWeekday($today,$lang[0]);
+
+var_dump($dateTime['LT'][1]);
 echo '<br>';
-var_dump($dateTime[$lang[0]][0]);
+var_dump($dateTime['EN'][3]);
 echo '<br>';
-var_dump($dateTime[$lang[1]][0]);
+
+var_dump($dateTime[$numberDate[1]][$numberDate[0]]);
