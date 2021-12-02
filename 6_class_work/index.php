@@ -11,8 +11,7 @@ $lang = ['EN','LT'];
 
 
 function getWeekday($today,$lang) {
-    return $data = [$numberDate = date('w', strtotime($today)),$lang];
-
+    return $data = [date('w', strtotime($today)),$lang];
 }
 
 
