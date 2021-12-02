@@ -2,7 +2,7 @@
 
 $dateTime = [
     'LT'=>['Sekmadienis','Pirmadienis', 'Antradienis', 'Trečiadienis','Ketvirtadienis','Penktadienis','Šeštadienis'],
-    'EN'=>['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday']
+    'EN'=>['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 ];
 
 $today = date("Y-m-d");
