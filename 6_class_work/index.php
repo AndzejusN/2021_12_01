@@ -6,20 +6,34 @@ $dateTime = [
 ];
 
 $today = date("Y-m-d");
-
 $lang = ['EN','LT'];
 
+$result = date('w', strtotime($today));
 
-function getWeekday($today,$lang) {
-    return $data = [date('w', strtotime($today)),$lang];
-}
+if(isset($_POST['submit'])) {
+     $today = $_POST['date'];
+     $result =  date('w', strtotime($today));
+    }
 
+?>
 
-$numberDate = getWeekday($today,$lang[0]);
+<!DOCTYPE html>
+<html lang='lt'>
+<head>
+    <title>
+    </title>
+</head>
 
-var_dump($dateTime['LT'][1]);
-echo '<br>';
-var_dump($dateTime['EN'][3]);
-echo '<br>';
+<body>
 
-var_dump($dateTime[$numberDate[1]][$numberDate[0]]);
+<section>
+    <form action="index.php" method="POST">
+        <label>Please add date to know a week day of it:</label>
+        <br>
+        <input type="text" name="date" value="<?php echo htmlspecialchars($today); ?>">
+            <input type="submit" name="submit" value="submit">
+        <div><?php echo $dateTime[$lang[1]][$result]; ?></div>
+    </form>
+</section>
+</body>
+</html>
