@@ -15,15 +15,15 @@
 <main>
     <form action="add.php" method="POST">
 
-        <label>Vardas:</label>
-        <input name="name" type="text">
+        <label for="name">Vardas:</label>
+        <input name="name" type="text" id="name">
         <br>
-        <label>Pavardė:</label>
-        <input name="surname" type="text">
+        <label for="surname">Pavardė:</label>
+        <input name="surname" type="text" id="surname">
         <br>
         <br>
-        <label>Miestas:</label>
-        <select name="cities">
+        <label for="cities">Miestas:</label>
+        <select name="cities" id="cities">
             <option value="vilnius">Vilnius</option>
             <option value="kaunas">Kaunas</option>
             <option value="klaipeda">Klaipėda</option>
@@ -32,17 +32,17 @@
 
     <h3>Programavimo kalba</h3>
 
-        <label>C++</label>
-        <input type="checkbox" name="lang[]" value="cpp">
+        <label for="cpp">C++</label>
+        <input type="checkbox" name="lang[]" value="cpp" id="cpp">
         <br>
-        <label>PHP</label>
-        <input type="checkbox" name="lang[]" value="php">
+        <label for="php">PHP</label>
+        <input type="checkbox" name="lang[]" value="php" id="php">
         <br>
-         <label>Python</label>
-         <input type="checkbox" name="lang[]" value="python">
+         <label for="python">Python</label>
+         <input type="checkbox" name="lang[]" value="python" id="python">
         <br>
-            <label><h3>Papildoma informacija</h3></label>
-             <textarea cols="30" rows="10" name="text_area"></textarea>
+            <label for="textarea"><h3>Papildoma informacija</h3></label>
+             <textarea cols="30" rows="10" name="text_area" id="textarea"></textarea>
         <br>
         <button type="submit">Submit</button>
 
