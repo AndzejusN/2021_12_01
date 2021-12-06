@@ -1,10 +1,4 @@
 <?php
-// Sukurti masyvą, kuris aprašytų knygos duomenis: title, author, year, genre
-// Sukurti masyvą, kurio elementai būtų masyvai aprašantys knygas. Minimum 3.
-// Išvesti visus knygų masyvo elementus su var_dump;
-// Išvesti visus knygų masyvo elementus lentele;
-// Išvesti visų visų knygų metų vidurkį;
-
 
 $books = [[
     'title' => 'ŠUNIŠKOS KALĖDOS',
