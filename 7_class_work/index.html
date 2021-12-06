@@ -8,36 +8,45 @@
 <body>
 
 <header>
-    <h1>Registracija į kursus</h1>
+    <h3>Registracija į kursus</h3>
+    <hr>
 </header>
 
 <main>
     <form action="add.php" method="POST">
-<label>Vardas:</label>
-<input name="name" type="text">
-<label>Pavardė:</label>
-<input name="surname" type="text">
-<label>Miestas:</label>
-<select name="cities">
-    <option value="vilnius">Vilnius</option>
-    <option value="kaunas">Kaunas</option>
-    <option value="klaipeda">Klaipėda</option>
-    <option value="siauliai">Šiauliai</option>
-</select>
+
+        <label>Vardas:</label>
+        <input name="name" type="text">
+
+        <label>Pavardė:</label>
+        <input name="surname" type="text">
+
+        <label>Miestas:</label>
+        <select name="cities">
+            <option value="vilnius">Vilnius</option>
+            <option value="kaunas">Kaunas</option>
+            <option value="klaipeda">Klaipėda</option>
+            <option value="siauliai">Šiauliai</option>
+        </select>
+
     <h3>Programavimo kalba</h3>
-    <label>C++</label>
-    <input type="checkbox" name="cpp">
-    <label>PHP</label>
-    <input type="checkbox" name="php">
-    <label>Python</label>
-    <input type="checkbox" name="python">
-    <label><h3>Papildoma informacija</h3></label>
-    <textarea cols="30" rows="10" name="text_area">
+
+        <label>C++</label>
+        <input type="checkbox" name="cpp">
+
+        <label>PHP</label>
+        <input type="checkbox" name="php">
+
+         <label>Python</label>
+         <input type="checkbox" name="python">
+
+            <label><h3>Papildoma informacija</h3></label>
+             <textarea cols="30" rows="10" name="text_area">
             </textarea>
-    <button type="submit">Submit</button>
+
+        <button type="submit">Submit</button>
+
     </form>
-
 </main>
-
 </body>
 </html>
