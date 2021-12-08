@@ -1,49 +1,3 @@
-<?php
-
-//$textArea = $email = $name = $surname = '';
-//$errors = ['name' => '', 'surname' => '','email'=>''];
-//$link = '';
-//
-//if(isset($_POST['submit'])) {
-//
-//    if(empty($_POST['name'])){
-//        $errors['name'] = 'Nurodyti vardą yra būtina'. '<br>';
-//    } else {
-//        $name = $_POST['name'];
-//        if(!preg_match('/^[a-zA-Z\s]+$/', $name)){
-//            $errors['name'] = 'Vardas gali būti sudarytas iš raidžių bei galimi tarpai';
-//        }
-//    }
-//
-//    if(empty($_POST['surname'])){
-//        $errors['surname'] = 'Nurodyti pavardę yra būtina'. '<br>';
-//    } else {
-//        $surname = $_POST['surname'];
-//        if(!preg_match('/^[a-zA-Z\s]+$/', $surname)){
-//            $errors['surname'] = 'Pavardė gali būti sudarytas iš raidžių bei galimi tarpai';
-//        }
-//    }
-//
-//    if(empty($_POST['email'])){
-//        $errors['email'] = 'An email is required'. '<br>';
-//   //    } else {
-//        $email = $_POST['email'];
-//        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-//            $errors['email'] = 'Paštas nurodytas klaidingai';
-//        }
-//    }
-//
-//    if(array_filter($errors)) {
-//        echo 'Klaidos';
-//    }else{
-//  1 variantas     header('Location:add.php');  -  neveikia
-//  2 variantas     $link = 'add.php';  ===> goes to from action; - neveikia
-//    }
-//}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="lt">
 <head>
@@ -65,17 +19,22 @@
         <br>
         <br>
         <label for="name">Vardas:</label>
-        <input name="name" type="text" id="name" value="Petras">
-<!--        <div class="error">--><?php //echo $errors['name']; ?><!--</div>-->
+        <input name="name" type="text" id="name">
+        <?php if (isset($_GET['name'])): ?>
+        <div class="error"><?php echo $_GET['name']; ?></div>
+        <?php endif; ?>
         <br>
         <label for="surname">Pavardė:</label>
         <input name="surname" type="text" id="surname" value="Cvirka">
-<!--        <div class="error">--><?php //echo $errors['surname']; ?><!--</div>-->
+        <?php if (isset($_GET['surname'])): ?>
+        <div class="error"><?php echo $_GET['surname']; ?></div>
+        <?php endif; ?>
         <br>
         <label for="email">Paštas:</label>
         <input name="email" type="email" id="email" value="laiskas@praeitis.lt">
-<!--        <div class="error">--><?php //echo $errors['email']; ?><!--</div>-->
-        <br>
+        <?php if (isset($_GET['email'])): ?>
+        <div class="error"><?php echo $_GET['email']; ?></div>
+        <?php endif; ?>        <br>
         <br>
         <label for="cities">Miestas, kuriame gyvenu:</label>
         <select name="cities" id="cities">
