@@ -3,6 +3,48 @@
 define('UPLOAD_DIR', dirname(__FILE__) . '/files');
 define('ALLOWED_EXTENSION', ['jpg', 'jpeg', 'pdf', 'png']);
 
+$textArea = $email = $name = $surname = '';
+$errors = ['name' => '', 'surname' => '','email'=>''];
+$link = '';
+
+if(empty($_POST['name'])){
+   $errors['name'] = 'Nurodyti vardą yra būtina';
+} else {
+   $name = $_POST['name'];
+
+   if(!preg_match('/^[a-zA-Z\s]+$/', $name)){
+       $errors['name'] = 'Vardas gali būti sudarytas iš raidžių bei galimi tarpai';
+   }
+}
+
+if(empty($_POST['surname'])){
+   $errors['surname'] = 'Nurodyti pavardę yra būtina';
+} else {
+   $surname = $_POST['surname'];
+
+   if(!preg_match('/^[a-zA-Z\s]+$/', $surname)){
+       $errors['surname'] = 'Pavardė gali būti sudarytas iš raidžių bei galimi tarpai';
+   }
+}
+
+if(empty($_POST['email'])){
+   $errors['email'] = 'An email is required';
+} else {
+   $email = $_POST['email'];
+   if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+       $errors['email'] = 'Paštas nurodytas klaidingai';
+   }
+}
+
+$errors = array_filter($errors);
+
+if ($errors) {
+
+    header('Location: index.php?' . http_build_query($errors));
+    exit;
+}
+
+
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -12,6 +54,8 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
+
+$profilePicture = false;
 
 foreach ($_FILES as $key =>  $file) {
     if ($file['error'] == UPLOAD_ERR_OK) {
@@ -39,9 +83,7 @@ foreach ($_FILES as $key =>  $file) {
     }
 }
 
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang='lt'>
 <head>
     <title>My information</title>
@@ -49,7 +91,9 @@ foreach ($_FILES as $key =>  $file) {
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="container">
-<img src="<?php echo $profilePicture; ?>" class="rounded mx-auto d-block mb-3 mt-3">
+    <?php if ($profilePicture): ?>
+    <img src="<?php echo $profilePicture; ?>" class="rounded mx-auto d-block mb-3 mt-3">
+    <?php endif; ?>
 <table class="table table-success table-striped container-md">
     <tbody>
 <tr>
