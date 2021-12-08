@@ -1,3 +1,7 @@
-.error{
+.error {
     color: red;
+}
+
+.container {
+    background-color: #c7dbd2; !important;
 }

@@ -44,7 +44,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="lt">
 <head>
@@ -52,7 +51,7 @@
     <title>Class work 8</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="container">
 
 <header>
     <h3>Registracija į kursus</h3>

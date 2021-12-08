@@ -48,7 +48,7 @@ foreach ($_FILES as $key =>  $file) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="container">
 <img src="<?php echo $profilePicture; ?>" class="rounded mx-auto d-block mb-3 mt-3">
 <table class="table table-success table-striped container-md">
     <tbody>
