@@ -38,6 +38,7 @@ foreach ($_FILES as $key =>  $file) {
         $profilePicture = str_replace('/home/code-academy/PHP', '', $path);
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@ foreach ($_FILES as $key =>  $file) {
 <head>
     <title>My information</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <img src="<?php echo $profilePicture; ?>" class="rounded mx-auto d-block mb-3 mt-3">
@@ -55,14 +56,21 @@ foreach ($_FILES as $key =>  $file) {
     <td>
     <p class="text-end">Vardas:</p>
     </td>
-    <td><p class="text-start"><?php echo $_POST['surname']; ?></p>
+    <td><p class="text-start"><?php echo $_POST['name']; ?></p>
     </td>
 </tr>
 <tr>
     <td>
         <p class="text-end">Pavarde:</p>
     </td>
-    <td><p class="text-start"><?php echo $_POST['name']; ?></p>
+    <td><p class="text-start"><?php echo $_POST['surname']; ?></p>
+    </td>
+</tr>
+<tr>
+    <td>
+        <p class="text-end">Paštas:</p>
+    </td>
+    <td><p class="text-start"><?php echo $_POST['email']; ?></p>
     </td>
 </tr>
 <tr>
