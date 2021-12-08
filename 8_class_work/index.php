@@ -2,6 +2,7 @@
 
 //$textArea = $email = $name = $surname = '';
 //$errors = ['name' => '', 'surname' => '','email'=>''];
+//$link = '';
 //
 //if(isset($_POST['submit'])) {
 //
@@ -25,7 +26,7 @@
 //
 //    if(empty($_POST['email'])){
 //        $errors['email'] = 'An email is required'. '<br>';
-//    } else {
+//   //    } else {
 //        $email = $_POST['email'];
 //        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 //            $errors['email'] = 'Paštas nurodytas klaidingai';
@@ -35,7 +36,8 @@
 //    if(array_filter($errors)) {
 //        echo 'Klaidos';
 //    }else{
-//       header('Location:add.php');
+//  1 variantas     header('Location:add.php');  -  neveikia
+//  2 variantas     $link = 'add.php';  ===> goes to from action; - neveikia
 //    }
 //}
 
