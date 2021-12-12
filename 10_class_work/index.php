@@ -9,13 +9,14 @@
     <title>Class work 10</title>
 </head>
 <body class="container">
+<header class="header">
+    <div id="header-block">
+        <div class="header1-text">Pilot Training Center</div>
+        <div class="header2-text">High future possibilities in</div>
+        <div class="header2-text">[ Full Stack Courses ]</div>
 
-<header>
-    <h3>Registracija į kursus</h3>
-    <hr>
+    </div>
 </header>
-
-
 <main>
     <div id="contact-form" data-action="add.php" data-method="POST">
         <label for="picture">Įkelkite nuotrauka:</label>
@@ -59,57 +60,11 @@
 <footer>
     <div class="output">
         <div class="output-main">
-            <img alt="Naujas foto" src="">
+            <img class="output-img" alt="Naujas foto" src="">
         </div>
     </div>
 </footer>
-<script>
+<script type="text/javascript" src="./assets/main.js"></script>
 
-    let output = document.querySelector('.output');
-    let image = document.querySelector('.output-main img');
-    let lang = document.getElementsByName('lang[]');
-    image.hidden = true;
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const formBlock = document.getElementById('contact-form');
-
-        const ACTION = formBlock.getAttribute('data-action');
-        const METHOD = formBlock.getAttribute('data-method');
-
-        document.querySelector('button').addEventListener('click', async function() {
-            let elements = document.querySelectorAll('#contact-form [name]');
-            image.hidden = false;
-
-            const formData = new FormData();
-
-            [...elements].map(element => {
-
-                if (element.files){
-                    for (let file of element.files) {
-                        formData.append(element.name, file);
-                }
-                }else if(element.name !== 'lang[]'){
-                        formData.append(element.name, element.value);
-                }
-                else if(element.name === 'lang[]'){
-                    if (element.checked) {
-                        formData.append(element.name, element.value);
-                }
-                }
-            });
-
-
-            let response = await fetch(ACTION, {
-                method: METHOD,
-                body: formData
-            });
-
-            response = await response.text();
-
-            image.src = `files/new/jpg/${response}.jpg`;
-        });
-    });
-
-</script>
 </body>
 </html>

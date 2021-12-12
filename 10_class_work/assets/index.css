@@ -1,4 +1,57 @@
-img {
+@font-face {
+    font-family: firstFont;
+    src: url('/fonts/Candara Font.ttf');
+}
+
+body {
+    font-family: firstFont, Light;
+    max-width: 58.5vw;
+    margin: 0 auto;
+    color: white;
+    text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
+}
+
+.header {
+    margin-top: 20px;
+    height: 30vh;
+    background-image: url("../pictures/banner_native.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+div {
+    font-family: firstFont, Light;
+}
+
+.header-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.header1-text {
+    font-size: 42px;
+    margin: 0 0 60px 30px;
+    padding-top: 50px;
+    letter-spacing: 3px;
+}
+.header2-text {
+    font-size: 24px;
+    margin-left: 30px;
+    padding: 10px 0;
+    letter-spacing: 2px;
+}
+
+
+main {
+    margin: 0 auto;
+    background-color: #79a0c9;
+}
+
+.output-img {
     width: 600px;
     height: 350px;
+}
+
+footer{
+    max-width: 80vw;
+    background-color: #51739a;
 }
