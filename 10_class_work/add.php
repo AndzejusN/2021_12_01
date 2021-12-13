@@ -27,7 +27,7 @@ imagecopy($id, $photo, imagesx($id) - $sx - $marge_right, imagesy($id) - $sy - $
 
 $textColor = imagecolorallocate($id, 0, 0, 0);
 
-$font_path = './open-sans/OpenSans-BoldItalic.ttf';
+$font_path = './fonts/OpenSans-BoldItalic.ttf';
 
 $idNumber = generateRandomString();
 
