@@ -35,7 +35,7 @@
         <br>
         <label for="cities">Miestas, kuriame gyvenu:</label>
         <select name="cities" id="cities">
-            <option value="Vilnius" selected disabled>Pasirinkite miestą</option>
+            <option selected disabled>Pasirinkite miestą</option>
             <option value="Vilnius">Vilnius</option>
             <option value="Kaunas">Kaunas</option>
             <option value="Klaipėda">Klaipėda</option>
@@ -53,7 +53,7 @@
         <br>
         <label for="textarea">Pomėgiai ir laisvalaikio užsiėmimai:</label>
         <br>
-        <textarea cols="30" rows="10" name="text_area" id="textarea">Biliardas, politika</textarea>
+        <textarea cols="30" rows="10" name="text_area" id="textarea" placeholder="Biliardas, politika"></textarea>
         <br>
         <button type="submit" name="submit">Submit</button>
     </div>
