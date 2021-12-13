@@ -14,7 +14,6 @@
         <div class="header1-text">Pilot Training Center</div>
         <div class="header2-text">High future possibilities in</div>
         <div class="header2-text">[ Full Stack Courses ]</div>
-
     </div>
 </header>
 <main>
