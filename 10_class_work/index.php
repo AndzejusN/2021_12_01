@@ -35,7 +35,8 @@
         <br>
         <label for="cities">Miestas, kuriame gyvenu:</label>
         <select name="cities" id="cities">
-            <option value="Vilnius" selected>Vilnius</option>
+            <option value="Vilnius" selected disabled>Pasirinkite miestą</option>
+            <option value="Vilnius">Vilnius</option>
             <option value="Kaunas">Kaunas</option>
             <option value="Klaipėda">Klaipėda</option>
             <option value="Šiauliai">Šiauliai</option>
