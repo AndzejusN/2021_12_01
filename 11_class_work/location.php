@@ -1,9 +1,5 @@
 <?php
 
-if(isset($_COOKIE["cookietime"])){
-    echo 'Connection time:'. '<br>' . $_COOKIE["cookietime"] . '<br><br>';
-}
-
 $name = $_POST["name"];
 $password = $_POST["password"];
 
@@ -37,17 +33,9 @@ $longitude = $arrData["users"]["{$numUser}"]["location"]["coordinates"]["longitu
     exit();
 }
 
-
-//if(isset($_COOKIE["cookietime"])){
-//    $arrData["users"][$numUser][] = ["lastlog" => $_COOKIE["cookietime"]];
-//}
-
-//$json = json_encode($arrData);
-
-//if (file_put_contents('./files/users.json', $json))
-//    echo "JSON file created successfully...";
-//else
-//    echo Error creating json file...";
+if(isset($_COOKIE["cookietime"])){
+    echo 'Connection time:'. '<br>' . $_COOKIE["cookietime"] . '<br><br>';
+}
 
 ?>
 
@@ -135,3 +123,15 @@ $longitude = $arrData["users"]["{$numUser}"]["location"]["coordinates"]["longitu
 </body>
 </html>
 
+<?php
+//if(isset($_COOKIE["cookietime"])){
+//    $arrData["users"][$numUser][] = ["lastlog" => $_COOKIE["cookietime"]];
+//}
+
+//$json = json_encode($arrData);
+
+//if (file_put_contents('./files/users.json', $json))
+//    echo "JSON file created successfully...";
+//else
+//    echo Error creating json file...";
+?>
