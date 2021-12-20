@@ -1,0 +1,7 @@
+body {
+    background: lightgoldenrodyellow;
+}
+
+th, tr, td{
+    text-align: left; !important;
+}
