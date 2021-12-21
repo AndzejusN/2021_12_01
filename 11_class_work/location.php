@@ -1,40 +1,42 @@
 <?php
-
-$name = $_POST["name"];
-$password = $_POST["password"];
+session_start();
 
 $fileJs = file_get_contents('./files/users.json');
 
 $arrData = json_decode($fileJs, true);
 
-$flag = FALSE;
-for ($i = 0 ; $i < count($arrData["users"]) ; $i++) {
+if (!isset($_SESSION['user_id'])) {
 
-    if (($arrData["users"][$i]["username"]) == $name && ($arrData["users"][$i]["password"]) == $password) {
-        $flag = TRUE;
-        $numUser = $i;
+    $name = $_POST["name"] ?? NULL;
+    $password = $_POST["password"] ?? NULL;
+
+    for ($i = 0 ; $i < count($arrData["users"]) ; $i++) {
+
+        if ($arrData["users"][$i]["username"] == $name && $arrData["users"][$i]["password"] === $password) {
+            $_SESSION['last_login_time'] = time();
+            $_SESSION['user_id'] = $i;
+        }
     }
 }
 
-if($flag == TRUE){
-$userName = $arrData["users"]["{$numUser}"]["username"];
-$streetNum = $arrData["users"]["{$numUser}"]["location"]["street"]["number"];
-$streetName = $arrData["users"]["{$numUser}"]["location"]["street"]["name"];
-$city = $arrData["users"]["{$numUser}"]["location"]["city"];
-$state = $arrData["users"]["{$numUser}"]["location"]["state"];
-$country = $arrData["users"]["{$numUser}"]["location"]["country"];
-$postCode = $arrData["users"]["{$numUser}"]["location"]["postcode"];
-$latitude = $arrData["users"]["{$numUser}"]["location"]["coordinates"]["latitude"];
-$longitude = $arrData["users"]["{$numUser}"]["location"]["coordinates"]["longitude"];
+if(isset($_SESSION['user_id'])){
 
+
+    $userName = $arrData["users"]["{$_SESSION['user_id']}"]["username"];
+    $streetNum = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["street"]["number"];
+    $streetName = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["street"]["name"];
+    $city = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["city"];
+    $state = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["state"];
+    $country = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["country"];
+    $postCode = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["postcode"];
+    $latitude = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["coordinates"]["latitude"];
+    $longitude = $arrData["users"]["{$_SESSION['user_id']}"]["location"]["coordinates"]["longitude"];
+
+    
 
 }else{
     header("Location: index.php?id=error");
     exit();
-}
-
-if(isset($_COOKIE["cookietime"])){
-    echo 'Connection time:'. '<br>' . $_COOKIE["cookietime"] . '<br><br>';
 }
 
 ?>
@@ -118,20 +120,15 @@ if(isset($_COOKIE["cookietime"])){
             <?php echo $longitude; ?>
         </td>
     </tr>
+    <tr>
+        <td>
+            last time:
+        </td>
+        <td>
+            <?php echo $_SESSION['last_login_time']; ?>
+        </td>
+    </tr>
     </tbody>
 </table>
 </body>
 </html>
-
-<?php
-//if(isset($_COOKIE["cookietime"])){
-//    $arrData["users"][$numUser][] = ["lastlog" => $_COOKIE["cookietime"]];
-//}
-
-//$json = json_encode($arrData);
-
-//if (file_put_contents('./files/users.json', $json))
-//    echo "JSON file created successfully...";
-//else
-//    echo Error creating json file...";
-?>
