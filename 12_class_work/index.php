@@ -19,4 +19,3 @@ foreach ($newData as $row){
 
 fclose($fp);
 
-//header("Location: /return.php");
