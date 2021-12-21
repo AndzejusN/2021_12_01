@@ -130,8 +130,12 @@ if(isset($_COOKIE["cookietime"])){
 
 //$json = json_encode($arrData);
 
+// Variantas: $arrData["users"][{$numUser}]["cookieTime"] = $_COOKIE["cookietime"];
+
 //if (file_put_contents('./files/users.json', $json))
 //    echo "JSON file created successfully...";
 //else
 //    echo Error creating json file...";
+
+
 ?>
