@@ -1,9 +1,11 @@
 <?php
-$genCode = $_GET['code'];
-$url = 'http://localhost/2021_12_01/14_class_work/redirect.php' . '?code=' . $genCode;
 
 $fileJs = file_get_contents('./data/data.json');
 $dataArr = json_decode($fileJs, true);
+
+$genCode = $_GET['code'];
+
+$url = 'http://localhost/2021_12_01/14_class_work/redirect.php' . '?code=' . $genCode;
 
 foreach ($dataArr as $keyArr) {
     foreach ($keyArr as $key => $value) {

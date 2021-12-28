@@ -5,7 +5,56 @@ body {
     align-items: center;
     height: 100vh;
     width: 60vw;
+    background-color: silver;
 }
 
+img {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 200px;
+}
+
+#name{
+    width: 300px;
+    border: 2px solid darkred;
+    border-radius: 4px;
+    background-color: #8e97b6;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px #000000;
+}
+
+::placeholder {
+    color: white;
+    text-shadow: 1px 1px #000000;
+}
+
+#name:focus {
+    color: white;
+    text-shadow: 1px 1px #000000;
+}
+
+button{
+    color: ivory;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #8e97b6;
+    text-shadow: 1px 1px #000000;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 60vw;
+}
+
+a:link{
+    color: darkslategrey;
+    font-weight: bold;
+    text-decoration: none;
+}
 
 

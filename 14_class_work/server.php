@@ -1,9 +1,8 @@
 <?php
-session_start();
 
 $mainUrl = 'http://localhost/2021_12_01/14_class_work/redirect.php?code=';
 
-if(isset($_POST['name'])){
+if((isset($_POST['name'])) && (!empty($_POST['name']))){
 
     $rand = random_int(1000, 9999);
     $userAdd = $_POST['name'];
