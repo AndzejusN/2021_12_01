@@ -5,7 +5,7 @@
     <title>Class work 14</title>
     <link rel="stylesheet" href="assets/main.css">
 </head>
-
+<body>
 <img src="img/cut.png">
 <form action="server.php" method="POST" autocomplete="off">
     <input name="name" type="text" id="name" placeholder="URL address:">
