@@ -1,8 +1,8 @@
 <?php
 
-require('Vehicle.php');
+require_once 'Vehicle.php';
 
-Class Plane extends Vehicle {
+class Plane extends Vehicle {
     public $wheels = 2;
 
     function __construct($make = NULL, $model = NULL, $year = NULL, $wheels = NULL){

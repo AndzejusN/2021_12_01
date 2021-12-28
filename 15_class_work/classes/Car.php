@@ -1,10 +1,10 @@
 <?php
 
-require 'Vehicle.php';
+require_once 'Vehicle.php';
 
 class Car extends Vehicle
 {
- public $wheels = 4;
+    public $wheels = 4;
 
     function __construct($make = NULL, $model = NULL, $year = NULL, $wheels = NULL)
     {
@@ -12,8 +12,9 @@ class Car extends Vehicle
         $this->wheels = $wheels;
     }
 
-public function getFuelType() {
-return [1,2];
-}
 
+    public function getFuelType()
+    {
+        return [1, 2];
+    }
 }

@@ -1,11 +1,9 @@
 <?php
 
-require './classes/Boat.php';
-require './classes/Bus.php';
-require './classes/Car.php';
-require './classes/Motorcycle.php';
-require './classes/Vehicle.php';
-
-
-
+require_once './classes/Boat.php';
+require_once './classes/Bus.php';
+require_once './classes/Car.php';
+require_once './classes/Motorcycle.php';
+require_once './classes/Plane.php';
+require_once './classes/Vehicle.php';
 

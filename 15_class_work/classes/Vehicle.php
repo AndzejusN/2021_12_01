@@ -1,10 +1,10 @@
 <?php
 
-class Vehicle
-{
-    public $make = 0;
-    public $model = '';
-    public $year = 0;
+class Vehicle{
+
+    public $make;
+    public $model;
+    public $year;
 
     public function __construct($make = NULL, $model = NULL, $year = NULL){
         $this->make = $make;
@@ -17,7 +17,7 @@ class Vehicle
 }
 
     public function getIntroduction() {
-		return "{$this->make} {$this->model}";
+        return "$this->make $this->model";
 	}
 
     public function getAge() {
@@ -40,7 +40,10 @@ class Vehicle
 		return __CLASS__ . 'has' .  $this->getWheelsNumber() . 'wheels';
 	}
 
+    /**
+     * @throws Exception
+     */
     public function getFuelType() {
-     echo new Exception('Fuel type not found');
+     throw new Exception('Fuel type not found');
 	}
 }

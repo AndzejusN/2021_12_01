@@ -1,6 +1,6 @@
 <?php
 
-require 'Vehicle.php';
+require_once 'Vehicle.php';
 
 class Boat extends Vehicle
 {

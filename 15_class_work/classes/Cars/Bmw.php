@@ -1,5 +1,6 @@
 <?php
-require '../Car.php';
+
+require_once '../Car.php';
 
 class Bmw extends Car
 {
