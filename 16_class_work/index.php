@@ -11,7 +11,7 @@ $aver2 = ArrayHelper::arrAver($parameter);
 
 var_dump($sum);
 var_dump($aver);
-var_dump('<br>');
+echo '<br>';
 var_dump($sum2);
 var_dump($aver2);
 

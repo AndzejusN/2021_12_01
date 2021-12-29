@@ -6,14 +6,12 @@ class ArrayHelper
 
     public static function arrSum(array $arr)
     {
-        $sum = array_sum(self::$arr);
-        return  $sum;
+        return array_sum(self::$arr);
     }
 
     public static function arrAver(array $arr)
     {
-        $ave = array_sum(self::$arr) / count(self::$arr);
-        return $ave;
+        return array_sum(self::$arr) / count(self::$arr);
     }
 
     public static function sumRes(array $arr){
