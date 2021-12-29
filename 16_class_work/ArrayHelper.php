@@ -2,16 +2,14 @@
 
 class ArrayHelper
 {
-    public static array $arr = [1,2,3];
-
     public static function arrSum(array $arr)
     {
-        return array_sum(self::$arr);
+        return array_sum($arr);
     }
 
     public static function arrAver(array $arr)
     {
-        return array_sum(self::$arr) / count(self::$arr);
+        return array_sum($arr) / count($arr);
     }
 
     public static function sumRes(array $arr){

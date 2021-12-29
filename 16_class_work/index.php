@@ -14,5 +14,3 @@ var_dump($aver);
 echo '<br>';
 var_dump($sum2);
 var_dump($aver2);
-
-
