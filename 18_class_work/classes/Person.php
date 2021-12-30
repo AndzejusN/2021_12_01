@@ -5,7 +5,8 @@ abstract class Person
 
     protected $name;
 
-    public function __construct($name){
+    public function __construct($name)
+    {
         $this->setName($name);
 
     }
@@ -14,15 +15,17 @@ abstract class Person
 
     /**
      * @return mixed
-     */public function getName()
-{
-    return $this->name;
-}
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
-/**
- * @param mixed $name
- */public function setName($name): void
-{
-    $this->name = $name;
-}
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
 }
