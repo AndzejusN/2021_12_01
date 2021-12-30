@@ -13,7 +13,7 @@ class Student extends User
      * @param $money
      * @param $course
      */
-    public function __construct($name, $age, $money, $course)
+    public function __construct($name, $age, $money = NULL, $course= NULL)
     {
         parent::__construct($name, $age);
         $this->money = $money;

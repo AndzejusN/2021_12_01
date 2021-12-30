@@ -5,7 +5,7 @@ require_once 'User.php';
 class Worker extends User
 {
     private $salary;
-    public function __construct($name, $age, $salary){
+    public function __construct($name, $age, $salary = NULL){
         parent::__construct($name, $age);
         $this->salary = $salary;
     }
