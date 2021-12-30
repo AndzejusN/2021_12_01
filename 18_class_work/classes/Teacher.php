@@ -11,6 +11,6 @@ class Teacher extends Person
 
     public function greetings()
     {
-        return 'Hello students';
+        return "Hello students, I'm " . $this->name;
     }
 }

@@ -10,7 +10,7 @@ class Student extends Person
 
     public function greetings()
     {
-        return 'Hello everybody';
+        return "Hello everybody, I'm " . $this->name;
     }
 
 }

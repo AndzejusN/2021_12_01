@@ -11,6 +11,6 @@ class Programmer extends Person
 
     public function greetings()
     {
-        return 'Hello world';
+        return "Hello world, I'm " . $this->name;
     }
 }
