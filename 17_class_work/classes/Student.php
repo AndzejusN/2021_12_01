@@ -3,7 +3,6 @@ require_once 'User.php';
 
 class Student extends User
 {
-
     protected $money;
     protected $course;
 

@@ -1,7 +1,5 @@
 <?php
 
-require_once 'classes/User.php';
-require_once 'classes/Worker.php';
 require_once 'classes/Student.php';
 require_once 'classes/Driver.php';
 
