@@ -16,8 +16,8 @@ class Student extends User
     public function __construct($name, $age, $money = NULL, $course= NULL)
     {
         parent::__construct($name, $age);
-        $this->money = $money;
-        $this->course = $course;
+        $this->setMoney($money);
+        $this->setCourse($course);
     }
 
     /**

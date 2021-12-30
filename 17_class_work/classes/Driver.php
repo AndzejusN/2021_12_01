@@ -8,8 +8,8 @@ class Driver extends Worker
 
     public function __construct($name, $age, $salary, $expYears = NULL, $drvLicence = NULL){
         parent::__construct($name, $age, $salary);
-        $this->expYears = $expYears;
-        $this->drvLicence = $drvLicence;
+        $this->setExpYears($expYears);
+        $this->setDrvLicence($drvLicence);
     }
 
     /**

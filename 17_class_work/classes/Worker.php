@@ -7,7 +7,7 @@ class Worker extends User
     protected $salary;
     public function __construct($name, $age, $salary = NULL){
         parent::__construct($name, $age);
-        $this->salary = $salary;
+        $this->setSalary($salary);
     }
 
     /**

@@ -6,7 +6,6 @@ class User
     protected $age;
 
     public function __construct($name, $age){
-
         $this->setName($name);
         $this->setAge($age);
     }
