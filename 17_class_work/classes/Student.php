@@ -4,8 +4,8 @@ require_once 'User.php';
 class Student extends User
 {
 
-    private $money;
-    private $course;
+    protected $money;
+    protected $course;
 
     /**
      * @param $name
