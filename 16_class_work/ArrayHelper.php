@@ -2,14 +2,16 @@
 
 class ArrayHelper
 {
+    public static array $arr = [];
+
     public static function arrSum(array $arr)
     {
-        return array_sum($arr);
+        return array_sum(self::$arr);
     }
 
     public static function arrAver(array $arr)
     {
-        return array_sum($arr) / count($arr);
+        return array_sum(self::$arr) / count(self::$arr);
     }
 
     public static function sumRes(array $arr){
@@ -19,4 +21,4 @@ class ArrayHelper
     public static function averRes(array $arr){
         return self::arrAver($arr);
     }
-    }
+}

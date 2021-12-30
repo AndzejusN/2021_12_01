@@ -2,7 +2,7 @@
 
 require_once 'ArrayHelper.php';
 
-$parameter = [1,2,3];
+$parameter = ArrayHelper::$arr = [1,2,3];
 
 $sum = ArrayHelper::sumRes($parameter);
 $aver = ArrayHelper::averRes($parameter);
