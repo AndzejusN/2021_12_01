@@ -1,7 +1,7 @@
 <?php
 require_once 'Person.php';
 
-class Programer extends Person
+class Programmer extends Person
 {
 
     public function __construct($name)
