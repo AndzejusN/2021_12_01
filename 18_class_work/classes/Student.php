@@ -12,13 +12,4 @@ class Student extends Person
     {
         return "Hello everybody, I'm " . $this->name;
     }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
-    }
-
 }
