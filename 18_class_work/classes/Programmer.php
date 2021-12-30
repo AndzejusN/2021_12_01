@@ -11,6 +11,6 @@ class Programmer extends Person
 
     public function greetings()
     {
-        echo 'Hello world';
+        return 'Hello world';
     }
 }

@@ -11,6 +11,6 @@ class Teacher extends Person
 
     public function greetings()
     {
-        echo 'Hello students';
+        return 'Hello students';
     }
 }

@@ -10,7 +10,7 @@ class Student extends Person
 
     public function greetings()
     {
-        echo 'Hello everybody';
+        return 'Hello everybody';
     }
 
 }
