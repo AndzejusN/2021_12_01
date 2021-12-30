@@ -13,4 +13,12 @@ class Teacher extends Person
     {
         return "Hello students, I'm " . $this->name;
     }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
 }
