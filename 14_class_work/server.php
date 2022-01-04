@@ -16,10 +16,10 @@ if((isset($_POST['name'])) && (!empty($_POST['name']))){
 
     file_put_contents("./data/data.json", json_encode($data));
 
-    header("Location: index.php?name={$newLoc}");
+    header("Location: example.php?name={$newLoc}");
     exit();
 }else{
-    header("Location: index.php?id=error");
+    header("Location: example.php?id=error");
     exit();
 }
 

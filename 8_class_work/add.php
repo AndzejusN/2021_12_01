@@ -40,7 +40,7 @@ $errors = array_filter($errors);
 
 if ($errors) {
 
-    header('Location: index.php?' . http_build_query($errors));
+    header('Location: example.php?' . http_build_query($errors));
     exit;
 }
 
