@@ -8,6 +8,7 @@
 <body>
 <img src="img/cut.png">
 <form action="server.php" method="POST" autocomplete="off">
+    <label>Some Text</label>
     <input name="name" type="text" id="name" placeholder="URL address:">
     <button type="submit" name="submit">Submit</button>
 </form>
