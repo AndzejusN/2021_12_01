@@ -1,12 +1,15 @@
 <?php
 
+$data = file_get_contents('app/files/check.json');
+$data = json_decode($data);
+
 if (file_exists('vendor/autoload.php') == FALSE) {
     exit;
 }
 
 include_once 'vendor/autoload.php';
-
 use App\classes\FormBuilder;
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +21,10 @@ use App\classes\FormBuilder;
 <body>
 
 <?php
+
 $form = new FormBuilder;
+
+$form->setFile($data);
 
 echo $form->open('index.php', 'POST');
 echo $form->label('label_text');

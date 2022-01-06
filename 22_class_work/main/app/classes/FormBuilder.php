@@ -16,7 +16,7 @@ class FormBuilder
     public string $type;
     public string $value;
 
-    const ALLOWED_TYPE = ['button','checkbox','color','date','datetime-local','email','file','hidden','image','month','number','password','radio','range','reset','search','submit','tel','text','time','url','week'];
+    private array $file;
 
     function __construct($address = 'index.php', $method = 'POST', $text = 'Some text', $type='text', $value = 'some')
     {
@@ -26,6 +26,15 @@ class FormBuilder
         $this->type = $type;
         $this->value = $value;
     }
+
+    /**
+     * @param array $some
+     */
+    public function setFile(array $file): void
+    {
+        $this->file = $file;
+    }
+
 
     public function open($address, $method)
     {
