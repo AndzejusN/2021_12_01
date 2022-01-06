@@ -10,6 +10,4 @@ trait OtherTypes
         }
         return "<input type=\"{$type}\" placeholder=\"{$text}\" value=\"{$value}\">";
     }
-
-
 }
