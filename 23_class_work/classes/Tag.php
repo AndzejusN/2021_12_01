@@ -25,7 +25,7 @@ class Tag
     }
 
     public function show(){
-        print("<{$this->tag} {$this->attribute}=\"{$this->value}\"> {$this->text} </{$this->tag}>");
+       echo $this->get();
     }
     public function get(){
         return "<{$this->tag} {$this->attribute}=\"{$this->value}\"> {$this->text} </{$this->tag}>";
