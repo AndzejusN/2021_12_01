@@ -2,9 +2,15 @@
 
 class Tag
 {
+    public string $tag;
     public string $text;
     public string $attribute;
     public string $value;
+
+    public function __construct($tag = 'a'){
+        $this->tag = $tag;
+    }
+
 
     public function setText(string $text): Tag
     {
@@ -19,10 +25,10 @@ class Tag
     }
 
     public function show(){
-        print("<a {$this->attribute}=\"{$this->value}\"> {$this->text} </a>");
+        print("<{$this->tag} {$this->attribute}=\"{$this->value}\"> {$this->text} </{$this->tag}>");
     }
     public function get(){
-        return "<a {$this->attribute}=\"{$this->value}\"> {$this->text} </a>";
+        return "<{$this->tag} {$this->attribute}=\"{$this->value}\"> {$this->text} </{$this->tag}>";
     }
 
     /**
