@@ -2,15 +2,14 @@
 
 class Tag
 {
-    public string $tag;
-    public string $text;
-    public string $attribute;
-    public string $value;
+    private string $tag;
+    private string $text;
+    private string $attribute;
+    private string $value;
 
     public function __construct($tag = 'a'){
-        $this->tag = $tag;
+        $this->setTag($tag);
     }
-
 
     public function setText(string $text): Tag
     {
@@ -29,6 +28,15 @@ class Tag
     }
     public function get(){
         return "<{$this->tag} {$this->attribute}=\"{$this->value}\"> {$this->text} </{$this->tag}>";
+    }
+
+
+    /**
+     * @param mixed|string $tag
+     */
+    public function setTag($tag): void
+    {
+        $this->tag = $tag;
     }
 
     /**
