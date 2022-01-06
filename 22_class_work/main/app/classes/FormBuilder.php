@@ -20,7 +20,7 @@ class FormBuilder
 
     function __construct($address = 'index.php', $method = 'POST', $text = 'Some text', $type='text', $value = 'some')
     {
-        $this->address =$address;
+        $this->address = $address;
         $this->method = $method;
         $this->text = $text;
         $this->type = $type;
