@@ -7,7 +7,8 @@ class Tag
     private string $attribute;
     private string $value;
 
-    public function __construct($tag = 'a'){
+    public function __construct($tag = 'a')
+    {
         $this->setTag($tag);
     }
 
@@ -17,16 +18,20 @@ class Tag
         return $this;
     }
 
-    public function setAttr($attribute, $value) {
+    public function setAttr($attribute, $value)
+    {
         $this->attribute = $attribute;
         $this->value = $value;
         return $this;
     }
 
-    public function show(){
-       echo $this->get();
+    public function show()
+    {
+        echo $this->get();
     }
-    public function get(){
+
+    public function get()
+    {
         return "<{$this->tag} {$this->attribute}=\"{$this->value}\"> {$this->text} </{$this->tag}>";
     }
 
