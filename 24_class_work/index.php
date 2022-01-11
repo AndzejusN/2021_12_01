@@ -26,7 +26,6 @@ if (!isset($_COOKIE['uniqId'])) {
         header("Location: index2.php");
     } elseif ($_COOKIE['userState'] == 3) {
         header("Location: index3.php");
-
     }
 }
 ?>

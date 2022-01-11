@@ -8,15 +8,15 @@ if (file_exists('vendor/autoload.php') == FALSE) {
 }
 
 if (isset($_COOKIE['uniqId'])) {
-    if ($_COOKIE['userState'] == 0){
+    if ($_COOKIE['userState'] == 0) {
         header("Location: index.php");
-    }elseif($_COOKIE['userState'] == 1){
+    } elseif ($_COOKIE['userState'] == 1) {
         setcookie('userState', '2', time() + 3600);
-    }elseif($_COOKIE['userState'] == 2){
+    } elseif ($_COOKIE['userState'] == 2) {
         header("Location: index3.php");
-    }elseif($_COOKIE['userState'] == 3){
+    } elseif ($_COOKIE['userState'] == 3) {
         header("Location: index4.php");
-    }else{
+    } else {
         echo 'Please visit main page index.php';
     }
 }
