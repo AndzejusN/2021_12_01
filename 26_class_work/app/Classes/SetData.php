@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use App\Classes\StaticFunctions as dataReach;
+use Exception;
 
 class SetData
 {
@@ -28,5 +29,19 @@ class SetData
         file_put_contents($path, $response);
 
         return $some;
+    }
+
+    public function deleteOrderById($orderId)
+    {
+        $path = dataReach::getOrdersPath();
+        $orders = dataReach::getDataOrders();
+
+        if (array_key_exists($orderId, $orders)) {
+            unset($orders[$orderId]);
+            $orders = json_encode($orders);
+            file_put_contents($path, $orders);
+            return $orders;
+        }
+        throw new Exception('Such order ID not found, please check. (No data was erased)');
     }
 }

@@ -14,6 +14,7 @@ use Sunrise\Http\ServerRequest\ServerRequestFactory;
 use function Sunrise\Http\Router\emit;
 
 $collector = new RouteCollector();
+
 $collector->get('home', '/', new CallableRequestHandler(function ($request) {
     return (new ResponseFactory)->createJsonResponse(200, [
         'status' => 'ok',
@@ -45,13 +46,27 @@ $collector->post('place_order', '/order', new CallableRequestHandler(function ($
     return (new ResponseFactory)->createJsonResponse(200, $response);
 }));
 
-$collector->delete('delete_order', '/order', new CallableRequestHandler(function ($request) {
+$collector->get('delete_order', '/order/delete/{id<\d+>}', new CallableRequestHandler(function ($request) {
+    $id = $request->getAttribute('id');
+    try {
+        (new SetData)->deleteOrderById($id);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        exit;
+    }
 
-    return (new ResponseFactory)->createJsonResponse(200, [
-        'id' => $request->setAttribute(is_int('id')),
-    ]);
+    return (new ResponseFactory)->createJsonResponse(200, 'Your order Nr.:' . $id . ' is deleted');
 }));
 
+//=====================TEST========================//
+
+//$collector->get('documentation', '/v1/documentation', new CallableRequestHandler(function ($request) {
+//    $response = file_get_contents(ROOT_PATH . '/app/dist/swagger.json');
+//    $response = json_decode($response);
+//    return (new ResponseFactory)->createJsonResponse(200, $response);
+//}));
+
+//=====================TEST========================//
 
 $router = new Router();
 $router->addRoute(...$collector->getCollection()->all());
