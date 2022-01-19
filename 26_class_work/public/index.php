@@ -21,7 +21,7 @@ $collector->get('home', '/', new CallableRequestHandler(function ($request) {
     ]);
 }));
 
-$collector->get('check_order', '/order/{id<\d+>}', new CallableRequestHandler(function ($request) {
+$collector->get('check_order', '/order/{id}', new CallableRequestHandler(function ($request) {
 
     $id = $request->getAttribute('id');
 
@@ -46,7 +46,7 @@ $collector->post('place_order', '/order', new CallableRequestHandler(function ($
     return (new ResponseFactory)->createJsonResponse(200, $response);
 }));
 
-$collector->get('delete_order', '/order/delete/{id<\d+>}', new CallableRequestHandler(function ($request) {
+$collector->get('delete_order', '/order/delete/{id}', new CallableRequestHandler(function ($request) {
     $id = $request->getAttribute('id');
     try {
         (new SetData)->deleteOrderById($id);
@@ -54,19 +54,33 @@ $collector->get('delete_order', '/order/delete/{id<\d+>}', new CallableRequestHa
         echo $e->getMessage();
         exit;
     }
-
     return (new ResponseFactory)->createJsonResponse(200, 'Your order Nr.:' . $id . ' is deleted');
 }));
 
-//=====================TEST========================//
+$collector->post('set_user', '/user/set', new CallableRequestHandler(function ($request) {
 
-//$collector->get('documentation', '/v1/documentation', new CallableRequestHandler(function ($request) {
-//    $response = file_get_contents(ROOT_PATH . '/app/dist/swagger.json');
-//    $response = json_decode($response);
-//    return (new ResponseFactory)->createJsonResponse(200, $response);
-//}));
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
+    $response = (new SetData)->setUserWithId($data);
 
-//=====================TEST========================//
+    return (new ResponseFactory)->createJsonResponse(200, $response);
+}));
+
+$collector->get('user_info', '/user/{id}', new CallableRequestHandler(function ($request) {
+
+    $id = $request->getAttribute('id');
+
+    try {
+        $response = (new GetData)->getUserById($id);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        exit;
+    }
+
+    return (new ResponseFactory)->createJsonResponse(200, $response);
+
+}));
+
 
 $router = new Router();
 $router->addRoute(...$collector->getCollection()->all());

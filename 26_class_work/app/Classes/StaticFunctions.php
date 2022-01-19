@@ -4,11 +4,14 @@ namespace App\Classes;
 
 class StaticFunctions
 {
-    public static function getDataOrders():array
+    public static function getDataOrders()
     {
         $path = self::getOrdersPath();
         $orders = file_get_contents($path);
         $orders = json_decode($orders, true);
+        if ($orders == NULL){
+            return [];
+        }
         return $orders;
     }
 
@@ -16,7 +19,11 @@ class StaticFunctions
     {
         $path = self::getUsersPath();
         $users = file_get_contents($path);
-        return json_decode($users, true);
+        $users = json_decode($users, true);
+        if ($users == NULL){
+            return [];
+        }
+        return $users;
     }
 
     public static function getOrdersPath():string{
@@ -26,7 +33,5 @@ class StaticFunctions
     public static function getUsersPath(){
         return ROOT_PATH . $_ENV['USER_PATH'];
     }
-
-
 
 }

@@ -7,13 +7,9 @@ use Exception;
 
 class SetData
 {
-    public function setOrderId()
+    public function setOrderId(): string
     {
-        $path = ROOT_PATH . $_ENV['ORDER_PATH'];
-        $orderId = file_get_contents($path);
-        $orderId += 1;
-        file_put_contents($path, $orderId);
-        return $orderId;
+        return uniqid();
     }
 
     public function setOrderById($orderId, &$data): array
@@ -44,4 +40,20 @@ class SetData
         }
         throw new Exception('Such order ID not found, please check. (No data was erased)');
     }
+
+    public function setUserWithId(&$data)
+    {
+        $path = dataReach::getUsersPath();
+        $dataUsers = dataReach::getDataUsers();
+        $userId = uniqid();
+        $some['id'] = $userId;
+        $some = array_merge($some, $data);
+        $newKeyData[$userId] = $some;
+        $response = array_merge($dataUsers, $newKeyData);
+        $response = json_encode($response, JSON_PRETTY_PRINT);
+        file_put_contents($path, $response);
+
+        return $some;
+    }
+
 }
