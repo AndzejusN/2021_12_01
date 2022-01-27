@@ -2,7 +2,7 @@
 
 namespace App\Classes;
 
-use App\Classes\StaticFunctions as dataReach;
+use App\Classes\Helper as dataReach;
 use Exception;
 
 class SetData

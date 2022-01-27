@@ -1,0 +1,17 @@
+{
+  "name": "weather/app",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.4",
+    "sunrise/http-router-openapi": "^2.1",
+    "sunrise/http-message": "^2.1",
+    "sunrise/http-server-request": "^2.0",
+    "sunrise/http-router": "^2.6",
+    "guzzlehttp/guzzle": "^7.0"
+  }
+}

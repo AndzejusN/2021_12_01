@@ -4,7 +4,7 @@ require_once ROOT_PATH . '/vendor/autoload.php';
 
 (Dotenv\Dotenv::createImmutable(ROOT_PATH))->load();
 
-use App\Classes\GetData;
+use App\Classes\BooksController;
 use App\Classes\SetData;
 use Sunrise\Http\Message\ResponseFactory;
 use Sunrise\Http\Router\RequestHandler\CallableRequestHandler;
@@ -26,7 +26,7 @@ $collector->get('check_order', '/order/{id}', new CallableRequestHandler(functio
     $id = $request->getAttribute('id');
 
     try {
-        $response = (new GetData)->getOrderById($id);
+        $response = (new BooksController)->getOrderById($id);
     } catch (Exception $e) {
         echo $e->getMessage();
         exit;
@@ -71,7 +71,7 @@ $collector->get('user_info', '/user/{id}', new CallableRequestHandler(function (
     $id = $request->getAttribute('id');
 
     try {
-        $response = (new GetData)->getUserById($id);
+        $response = (new BooksController)->getUserById($id);
     } catch (Exception $e) {
         echo $e->getMessage();
         exit;
