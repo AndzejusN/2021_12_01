@@ -16,6 +16,15 @@ use function Sunrise\Http\Router\emit;
 
 $collector = new RouteCollector();
 
+$collector->get('all_books', '/', new CallableRequestHandler(function ($request) use ($dbh) {
+    $query = "SELECT * FROM Books";
+    $stmt = $dbh->prepare($query);
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return (new ResponseFactory)->createJsonResponse(200, $users);
+}));
+
+
 $collector->get('all_books', '/books', new CallableRequestHandler(function ($request) use ($dbh) {
     $query = "SELECT * FROM Books";
     $stmt = $dbh->prepare($query);

@@ -142,7 +142,7 @@ p a {
   display: inline-flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  height: 300px;
+  height: 200px;
 }
