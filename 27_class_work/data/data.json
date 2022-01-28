@@ -1,0 +1,7 @@
+{
+  "book": "data store",
+  "list of books": "GET: /books",
+  "add book": "POST: /books",
+  "change information": "PATCH: /books/book",
+  "delete book": "DELETE: /books/book"
+}

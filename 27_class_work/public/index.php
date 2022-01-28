@@ -2,7 +2,7 @@
 
 define('ROOT_PATH', dirname(__DIR__));
 require_once ROOT_PATH . '/vendor/autoload.php';
-require_once ROOT_PATH . '/base.php';
+
 
 use App\Classes\Controllers\BooksController;
 use Sunrise\Http\Message\ResponseFactory;
@@ -16,48 +16,32 @@ use function Sunrise\Http\Router\emit;
 
 $collector = new RouteCollector();
 
-$collector->get('all_books', '/', new CallableRequestHandler(function ($request) use ($dbh) {
-    $query = "SELECT * FROM Books";
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return (new ResponseFactory)->createJsonResponse(200, $users);
+$collector->get('root', '/', new CallableRequestHandler(function ($request) {
+    $response = (new BooksController)->checkData();
+    return (new ResponseFactory)->createJsonResponse(200, $response, JSON_PRETTY_PRINT);
 }));
 
-
-$collector->get('all_books', '/books', new CallableRequestHandler(function ($request) use ($dbh) {
-    $query = "SELECT * FROM Books";
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return (new ResponseFactory)->createJsonResponse(200, $users);
+$collector->get('all_books', '/books', new CallableRequestHandler(function ($request) {
+    $books = (new BooksController)->getAllBooks();
+    return (new ResponseFactory)->createJsonResponse(200, $books, JSON_PRETTY_PRINT);
 }));
 
-$collector->post('books_get', '/books', new CallableRequestHandler(function ($request) use ($dbh) {
+$collector->post('add_book', '/books', new CallableRequestHandler(function ($request) {
+    $data = file_get_contents('php://input');
+    (new BooksController)->addBook($data);
+    return (new ResponseFactory)->createJsonResponse(200, ['book' => 'was added'], JSON_PRETTY_PRINT);
+}));
+
+$collector->patch('book_change', '/books/book', new CallableRequestHandler(function ($request) {
     $query = file_get_contents('php://input');
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    return (new ResponseFactory)->createJsonResponse(200, [
-        'status' => 'ok'
-    ]);
+    (new BooksController)->changeBookData($query);
+    return (new ResponseFactory)->createJsonResponse(200, ['book' => 'was updated'], JSON_PRETTY_PRINT);
 }));
 
-$collector->patch('book_change', '/books/book', new CallableRequestHandler(function ($request) use ($dbh) {
+$collector->delete('book_delete', '/books/book', new CallableRequestHandler(function ($request) {
     $query = file_get_contents('php://input');
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    return (new ResponseFactory)->createJsonResponse(200, [
-        'status' => 'ok'
-    ]);
-}));
-
-$collector->delete('book_delete', '/books/book', new CallableRequestHandler(function ($request) use ($dbh) {
-    $query = file_get_contents('php://input');
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    return (new ResponseFactory)->createJsonResponse(200, [
-        'status' => 'ok'
-    ]);
+    (new BooksController)->deleteBook($query);
+    return (new ResponseFactory)->createJsonResponse(200, ['book' => 'was deleted'], JSON_PRETTY_PRINT);
 }));
 
 $router = new Router();
@@ -65,11 +49,3 @@ $router->addRoute(...$collector->getCollection()->all());
 $request = ServerRequestFactory::fromGlobals();
 $response = $router->handle($request);
 emit($response);
-
-
-// INSERT INTO Books (id, author, name, year, genre)
-// VALUES (NULL, 'From Postman', 'Skagen 21', 2000, 'Tragedy')
-
-// UPDATE Books SET author='Update', name='Update' WHERE id=1
-
-// DELETE FROM Books WHERE id=2

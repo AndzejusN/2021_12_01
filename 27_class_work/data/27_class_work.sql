@@ -17,23 +17,24 @@
 CREATE DATABASE IF NOT EXISTS `codeacademy` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `codeacademy`;
 
--- Dumping structure for table codeacademy.Books
-CREATE TABLE IF NOT EXISTS `Books` (
+-- Dumping structure for table codeacademy.books
+CREATE TABLE IF NOT EXISTS `books` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `author` varchar(50) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `year` year(4) DEFAULT NULL,
   `genre` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table codeacademy.Books: ~1 rows (approximately)
-/*!40000 ALTER TABLE `Books` DISABLE KEYS */;
-INSERT IGNORE INTO `Books` (`id`, `author`, `name`, `year`, `genre`) VALUES
-	(1, 'Update', 'Update', '1905', 'nuotykiai'),
+-- Dumping data for table codeacademy.books: ~3 rows (approximately)
+/*!40000 ALTER TABLE `books` DISABLE KEYS */;
+INSERT IGNORE INTO `books` (`id`, `author`, `name`, `year`, `genre`) VALUES
+	(1, 'Update', 'Update', '1905', 'Nuotykiai'),
 	(3, 'Tom B. Erichsen', 'Skagen 21', '2000', 'Tragedy'),
-	(4, 'From Postman', 'Skagen 21', '2000', 'Tragedy');
-/*!40000 ALTER TABLE `Books` ENABLE KEYS */;
+	(4, 'From Postman', 'Skagen 21', '2000', 'Tragedy'),
+	(5, 'Update', 'Update', '1905', 'nuotykiai');
+/*!40000 ALTER TABLE `books` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
