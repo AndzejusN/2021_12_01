@@ -3,8 +3,6 @@
 define('ROOT_PATH', dirname(__DIR__));
 require_once ROOT_PATH . '/vendor/autoload.php';
 
-(Dotenv\Dotenv::createImmutable(ROOT_PATH))->load();
-
 use Sunrise\Http\Message\ResponseFactory;
 use Sunrise\Http\Router\RequestHandler\CallableRequestHandler;
 use Sunrise\Http\Router\RouteCollector;
@@ -25,14 +23,7 @@ $collector->get('places', '/weather/places', new CallableRequestHandler(function
     return (new ResponseFactory)->createJsonResponse(200, $apiData, JSON_PRETTY_PRINT);
 }));
 
-$collector->get('places by city', '/weather/places/{id}', new CallableRequestHandler(function ($request) {
-    $city = $request->getAttribute('id');
-    $apiData = file_get_contents("https://api.meteo.lt/v1/places/" . $city);
-    $apiData = json_decode($apiData);
-    return (new ResponseFactory)->createJsonResponse(200, $apiData, JSON_PRETTY_PRINT);
-}));
-
-$collector->get('places by city long term', '/weather/long-term/{places}', new CallableRequestHandler(function ($request) {
+$collector->get('longterm', '/weather/long-term/{places}', new CallableRequestHandler(function ($request) {
     $city = $request->getAttribute('places');
     $apiData = file_get_contents("https://api.meteo.lt/v1/places/" . $city . "/forecasts/long-term");
     $apiData = json_decode($apiData);

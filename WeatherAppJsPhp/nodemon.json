@@ -1,4 +1,0 @@
-{
-  "ignore": ["resources", "[public/js", "public/css"],
-  "ext": "html, js"
-}

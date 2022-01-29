@@ -31,8 +31,8 @@ $collector->post('addBook', '/books', new CallableRequestHandler(function ($requ
     return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
 }));
 
-$collector->get('getBookById', '/books/{id}', new CallableRequestHandler(function ($request) {
-    $id = $request->getAttribute('id');
+$collector->get('getBookById', '/books/{book}', new CallableRequestHandler(function ($request) {
+    $id = $request->getAttribute('book');
     $book = (new BooksController)->getBookById($id);
     return (new ResponseFactory)->createJsonResponse(200, $book, JSON_PRETTY_PRINT);
 }));

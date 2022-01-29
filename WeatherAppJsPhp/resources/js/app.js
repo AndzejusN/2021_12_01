@@ -1,23 +1,16 @@
 import debounce from 'lodash.debounce';
 
-document.addEventListener('DOMContentLoader', function () {
-    fetch('/weather/places').then(response => response.json())
-        .then(data => console.log(data));
-
-    fetch('/weather/long-term').then(response => response.json())
-        .then(data => console.log(data));
-})
-
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
-
 
 const loadPlaceForecast = async matchCode => {
     const loadData = document.getElementById('some-info');
 
     const response = await fetch(`/weather/long-term/${matchCode}`);
     const citiesInfo = await response.json();
+
     for (let i = 0; i < citiesInfo.forecastTimestamps.length; i++) {
+
         let dateAndTime = citiesInfo.forecastTimestamps[i].forecastTimeUtc;
         dateAndTime = dateAndTime.substring(0, dateAndTime.length - 3);
 
@@ -32,11 +25,13 @@ const loadPlaceForecast = async matchCode => {
         div3.classList.add('card-body');
         let h3 = document.createElement('h3');
         h3.classList.add('card-title');
+
         if (Number(citiesInfo.forecastTimestamps[i].airTemperature) > 0) {
             h3.style.color = "darkred";
         } else {
             h3.style.color = "darkblue";
         }
+
         h3.innerText = Math.floor(citiesInfo.forecastTimestamps[i].airTemperature) + String.fromCharCode(176) + 'C';
         let p = document.createElement('p');
         p.classList.add('card-text');
@@ -47,6 +42,7 @@ const loadPlaceForecast = async matchCode => {
         let p3 = document.createElement('p');
         p3.classList.add('card-text');
         p3.innerText = 'Drėgnumas: ' + citiesInfo.forecastTimestamps[i].relativeHumidity + String.fromCharCode(37);
+
         div.appendChild(div2);
         div.appendChild(div3);
         div3.appendChild(h3);
@@ -58,6 +54,7 @@ const loadPlaceForecast = async matchCode => {
 }
 
 const searchCity = async searchText => {
+
     const response = await fetch('/weather/places');
     const cities = await response.json();
 
@@ -78,7 +75,7 @@ const searchCity = async searchText => {
 
             setTimeout(() => {
                 matchList.innerHTML = '';
-            }, 300);
+            }, 100);
 
             search.value = match.name;
             loadPlaceForecast(match.code);
@@ -93,9 +90,9 @@ const searchCity = async searchText => {
             matchList.innerHTML = '';
         }
     }
+
     document.getElementById('some-info').innerHTML = "";
 }
-
 
 search.addEventListener('input', debounce(() => {
     searchCity(search.value).then(r => search.value)

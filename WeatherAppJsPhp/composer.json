@@ -1,11 +1,6 @@
 {
   "name": "weather/orai",
   "type": "project",
-  "autoload": {
-    "psr-4": {
-      "App\\": "app/"
-    }
-  },
   "require": {
     "sunrise/http-router-openapi": "^2.1",
     "sunrise/http-message": "^2.1",
