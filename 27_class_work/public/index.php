@@ -3,7 +3,6 @@
 define('ROOT_PATH', dirname(__DIR__));
 require_once ROOT_PATH . '/vendor/autoload.php';
 
-
 use App\Classes\Controllers\BooksController;
 use Sunrise\Http\Message\ResponseFactory;
 use Sunrise\Http\Router\RequestHandler\CallableRequestHandler;
@@ -12,7 +11,7 @@ use Sunrise\Http\Router\Router;
 use Sunrise\Http\ServerRequest\ServerRequestFactory;
 use function Sunrise\Http\Router\emit;
 
-(Dotenv\Dotenv::createImmutable(ROOT_PATH))->load();
+(Dotenv\Dotenv::createUnsafeImmutable(ROOT_PATH))->load();
 
 $collector = new RouteCollector();
 
@@ -28,24 +27,26 @@ $collector->get('all_books', '/books', new CallableRequestHandler(function ($req
 
 $collector->post('add_book', '/books', new CallableRequestHandler(function ($request) {
     $data = file_get_contents('php://input');
-    (new BooksController)->addBook($data);
-    return (new ResponseFactory)->createJsonResponse(200, ['book' => 'was added'], JSON_PRETTY_PRINT);
+    $result = (new BooksController)->addBook($data);
+    return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
 }));
 
-$collector->patch('book_change', '/books/book', new CallableRequestHandler(function ($request) {
-    $query = file_get_contents('php://input');
-    (new BooksController)->changeBookData($query);
-    return (new ResponseFactory)->createJsonResponse(200, ['book' => 'was updated'], JSON_PRETTY_PRINT);
+$collector->patch('book_change', '/books/{book}', new CallableRequestHandler(function ($request) {
+    $id = $request->getAttribute('book');
+    $data = file_get_contents('php://input');
+    $result = (new BooksController)->changeBookData($data, $id);
+    return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
 }));
 
-$collector->delete('book_delete', '/books/book', new CallableRequestHandler(function ($request) {
-    $query = file_get_contents('php://input');
-    (new BooksController)->deleteBook($query);
-    return (new ResponseFactory)->createJsonResponse(200, ['book' => 'was deleted'], JSON_PRETTY_PRINT);
+$collector->delete('book_delete', '/books/{book}', new CallableRequestHandler(function ($request) {
+    $id = $request->getAttribute('book');
+    $result = (new BooksController)->deleteBook($id);
+    return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
 }));
 
 $router = new Router();
 $router->addRoute(...$collector->getCollection()->all());
 $request = ServerRequestFactory::fromGlobals();
 $response = $router->handle($request);
+
 emit($response);

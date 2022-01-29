@@ -25,15 +25,17 @@ CREATE TABLE IF NOT EXISTS `books` (
   `year` year(4) DEFAULT NULL,
   `genre` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table codeacademy.books: ~3 rows (approximately)
+-- Dumping data for table codeacademy.books: ~4 rows (approximately)
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
 INSERT IGNORE INTO `books` (`id`, `author`, `name`, `year`, `genre`) VALUES
-	(1, 'Update', 'Update', '1905', 'Nuotykiai'),
-	(3, 'Tom B. Erichsen', 'Skagen 21', '2000', 'Tragedy'),
-	(4, 'From Postman', 'Skagen 21', '2000', 'Tragedy'),
-	(5, 'Update', 'Update', '1905', 'nuotykiai');
+	(3, 'Tom B. Erichsen', 'Skagen 21', '2000', 'tragedy'),
+	(4, 'Marcel Proust', ' In Search of Lost Time', '2004', 'tragedy'),
+	(17, 'James Joyce', 'Ulysses', '2015', 'adventure'),
+	(18, 'Miguel de Cervantes', 'Don Quixote', '1950', 'adventure'),
+	(19, 'Gabriel Garcia Marquez', ' One Hundred Years of Solitude', '1990', 'horror'),
+	(20, 'F. Scott Fitzgerald', ' The Great Gatsby', '2012', 'fantasy');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
