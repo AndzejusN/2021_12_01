@@ -1,0 +1,7 @@
+"book": "data store",
+"root": "/", \
+"list of books": "GET: /books", \
+"one book by id": "GET: /books/{id}", \
+"add book": "POST: /books", \
+"change book information": "PATCH: /books/{id}", \
+"delete book": "DELETE: /books/{id}"
