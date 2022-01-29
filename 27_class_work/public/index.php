@@ -20,25 +20,25 @@ $collector->get('root', '/', new CallableRequestHandler(function ($request) {
     return (new ResponseFactory)->createJsonResponse(200, $response, JSON_PRETTY_PRINT);
 }));
 
-$collector->get('all_books', '/books', new CallableRequestHandler(function ($request) {
+$collector->get('getAllBooks', '/books', new CallableRequestHandler(function ($request) {
     $books = (new BooksController)->getAllBooks();
     return (new ResponseFactory)->createJsonResponse(200, $books, JSON_PRETTY_PRINT);
 }));
 
-$collector->post('add_book', '/books', new CallableRequestHandler(function ($request) {
+$collector->post('addBook', '/books', new CallableRequestHandler(function ($request) {
     $data = file_get_contents('php://input');
     $result = (new BooksController)->addBook($data);
     return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
 }));
 
-$collector->patch('book_change', '/books/{book}', new CallableRequestHandler(function ($request) {
+$collector->patch('changeBookData', '/books/{book}', new CallableRequestHandler(function ($request) {
     $id = $request->getAttribute('book');
     $data = file_get_contents('php://input');
     $result = (new BooksController)->changeBookData($data, $id);
     return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
 }));
 
-$collector->delete('book_delete', '/books/{book}', new CallableRequestHandler(function ($request) {
+$collector->delete('deleteBook', '/books/{book}', new CallableRequestHandler(function ($request) {
     $id = $request->getAttribute('book');
     $result = (new BooksController)->deleteBook($id);
     return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
