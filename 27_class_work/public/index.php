@@ -3,7 +3,7 @@
 define('ROOT_PATH', dirname(__DIR__));
 require_once ROOT_PATH . '/vendor/autoload.php';
 
-use App\Classes\Controllers\BooksController;
+use App\Controllers\BooksController;
 use Sunrise\Http\Message\ResponseFactory;
 use Sunrise\Http\Router\RequestHandler\CallableRequestHandler;
 use Sunrise\Http\Router\RouteCollector;
@@ -29,6 +29,12 @@ $collector->post('addBook', '/books', new CallableRequestHandler(function ($requ
     $data = file_get_contents('php://input');
     $result = (new BooksController)->addBook($data);
     return (new ResponseFactory)->createJsonResponse(200, $result, JSON_PRETTY_PRINT);
+}));
+
+$collector->get('getBookById', '/books/{id}', new CallableRequestHandler(function ($request) {
+    $id = $request->getAttribute('id');
+    $book = (new BooksController)->getBookById($id);
+    return (new ResponseFactory)->createJsonResponse(200, $book, JSON_PRETTY_PRINT);
 }));
 
 $collector->patch('changeBookData', '/books/{book}', new CallableRequestHandler(function ($request) {

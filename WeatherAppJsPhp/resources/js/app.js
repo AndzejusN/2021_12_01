@@ -1,6 +1,6 @@
 import debounce from 'lodash.debounce';
 
-document.addEventListener('DOMContentLoader', function() {
+document.addEventListener('DOMContentLoader', function () {
     fetch('/weather/places').then(response => response.json())
         .then(data => console.log(data));
 
@@ -73,7 +73,7 @@ const searchCity = async searchText => {
     for (let match of matches) {
         let button = document.createElement('button');
 
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             button.classList.add('active');
 
             setTimeout(() => {
@@ -97,5 +97,6 @@ const searchCity = async searchText => {
 }
 
 
-search.addEventListener('input', debounce(() => {searchCity(search.value).then(r => search.value)
-}, 300));
+search.addEventListener('input', debounce(() => {
+    searchCity(search.value).then(r => search.value)
+}, 100));

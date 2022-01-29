@@ -2,9 +2,6 @@
 
 namespace App\Classes\Controllers;
 
-use App\Classes\Helper;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 class WeatherController
 {

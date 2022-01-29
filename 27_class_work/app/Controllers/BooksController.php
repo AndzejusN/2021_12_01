@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Classes\Controllers;
+namespace App\Controllers;
 
-use App\Classes\Helper;
+use App\Helper;
 use PDO;
 use PDOException;
 
