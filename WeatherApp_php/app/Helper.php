@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Classes;
+namespace App;
 
 class Helper
 {
     public static function matchCity()
     {
-        $city = $_GET['city'];
+        $city = $_GET['city'] ?? NULL ?: 'Vilnius';
 
-        if ($city == NULL) {
-            $city = 'Vilnius';
-        }
         return self::readData($city);
     }
 
