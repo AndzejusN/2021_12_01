@@ -13,6 +13,15 @@ body {
   min-height: 100vh;
 }
 
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
 .main-content {
   flex-grow: 1;
 }
@@ -138,13 +147,4 @@ p a {
   text-decoration: none;
   color: #E4D6A7;
   font-size: 10px;
-}
-
-.container {
-  display: inline-flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-around;
-  align-items: center;
-  height: 250px;
 }

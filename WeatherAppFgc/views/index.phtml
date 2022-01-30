@@ -8,41 +8,38 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-
-<div class="container">
-    <form action="" method="get">
-        <label for="city"></label>
-        <input type="text" name="city" id="city" placeholder="Miesto pavadinimas">
-        <button type="submit" class="btn btn-outline-dark fw-bold btn-sm">Paieška</button>
-    </form>
-    <?php
-    if (isset($error)){
-        echo $div1 . $error . $div2;
-    }
-    ?>
-</div>
-<div class="output">
-</div>
-
-<article class="widget">
-
-    <div class="weatherIcon"><img alt="Nuotrauka nepasiekiama" src="images/lt_transparent.png"></div>
-
-    <div class="weatherInfo">
-        <div class="temperature"><span><?php if(isset($weatherArr['forecastTimestamps'][3]['airTemperature'])){
-                    echo round($weatherArr['forecastTimestamps'][3]['airTemperature']
-                );}?>&deg;</span></div>
-        <div class="description">
-            <div class="weatherCondition"><?php if(isset($weatherArr['place']['country'])){
-                    echo $weatherArr['place']['country'];
-                }?></div>
-            <div class="place"><?php if(isset($weatherArr['place']['code'])){
-                echo $weatherArr['place']['name'];
-                }?></div>
-        </div>
+    <div class="container">
+        <form action="" method="POST">
+            <label for="city"></label>
+                <input type="text" name="city" id="city" placeholder="Miesto pavadinimas">
+                <button type="submit" class="btn btn-outline-dark fw-bold btn-sm">Paieška</button>
+        </form>
+        <?php
+        if (isset($error)) {echo $div1 . $error . $div2;}
+        ?>
     </div>
-    <div class="date"><?php echo date("Y-m-d") ?></div>
-</article>
 
+    <article class="widget">
+        <div class="weatherIcon">
+            <img alt="Nuotrauka nepasiekiama" src="images/lt_transparent.png">
+        </div>
+        <div class="weatherInfo">
+            <div class="temperature">
+                <span><?php if (isset($weatherArr['forecastTimestamps'][3]['airTemperature'])) {
+                        echo round($weatherArr['forecastTimestamps'][3]['airTemperature']);} ?>&deg;
+                </span>
+            </div>
+            <div class="description">
+                <div class="weatherCondition">
+                    <?php if (isset($weatherArr['place']['country'])) {
+                        echo $weatherArr['place']['country'];} ?>
+                </div>
+                <div class="place"><?php if (isset($weatherArr['place']['code'])) {
+                        echo $weatherArr['place']['name'];} ?>
+                </div>
+            </div>
+        </div>
+        <div class="date"><?php echo date("Y-m-d") ?></div>
+    </article>
 </body>
 </html>
