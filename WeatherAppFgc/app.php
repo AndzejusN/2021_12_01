@@ -1,6 +1,6 @@
 <?php
 
-$city = htmlspecialchars($_POST['city']) ?? 'Vilnius';
+$city = $_POST['city'] ?? 'Vilnius';
 
 $content = @file_get_contents("https://api.meteo.lt/v1/places/" . $city . "/forecasts/long-term");
 

@@ -16,3 +16,8 @@ class Helper
         return file_get_contents("http://localhost/weather/long-term/{$city}");
     }
 }
+
+define("FOO","BAR");
+
+
+

@@ -31,7 +31,8 @@
             </div>
             <div class="description">
                 <div class="weatherCondition">
-                    <?php if (isset($weatherArr['place']['country'])) {
+                    <?php
+                    if (isset($weatherArr['place']['country'])) {
                         echo $weatherArr['place']['country'];} ?>
                 </div>
                 <div class="place"><?php if (isset($weatherArr['place']['code'])) {
